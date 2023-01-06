@@ -48,6 +48,8 @@
 	// Create the HTML form:
 	?>
 	<p>Please fill out this form to contact me.</p>
+
+	<!-- this form is giving me an error. if i use the form from email.php from chap11exer, then it works-->
 	<form action="/submit-form" method="post">
 		<label for="name">Name:</label><br>
 		<input type="text" id="name" name="name"><br>
@@ -61,7 +63,7 @@
 		</select><br>
 		<label for="message">Message:</label><br>
 		<textarea id="message" name="message"></textarea><br>
-		<img src="/captcha-image/captcha.PNG" alt="Captcha">
+		<!-- <img src="/captcha-image/captcha.PNG" alt="Captcha"> -->
 		<br>
 		<label for="captcha">Enter the text from the image:</label><br>
 		<input type="text" id="captcha" name="captcha"><br><br>
