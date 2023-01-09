@@ -13,29 +13,35 @@
 	// Check for form submission:
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-		// Minimal form validation:
-		if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['comments'])) {
+		// Check the captcha text:
+		if ($_POST['captcha'] == "6T9JBCDS") {
 
-			// Create the body:
-			$body = "Name: {$_POST['name']}\n\nEmail: {$_POST['email']}\n\nComments: {$_POST['comments']}";
+			// Minimal form validation:
+			if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['comments'])) {
 
-			// Make it no longer than 70 characters long:
-			$body = wordwrap($body, 70);
+				// Create the body:
+				$body = "Name: {$_POST['name']}\n\nEmail: {$_POST['email']}\n\nComments: {$_POST['comments']}";
 
-			// Send the email:
-			//the email address is the one you want to send the email to
-			//so bellKevin@pm.me can be changed to whoever you want to send the email to like kevinbellr@gmail.com or george.ray@davistech.edu
-			//the subject is the subject line of the email, so Contact Form Submission can be changed to whatever you want
-			$to = 'bellKevin@pm.me, kevinbellr@gmail.com';
-			mail($to, 'Contact Form Submission', $body, "From: {$_POST['email']}");
+				// Make it no longer than 70 characters long:
+				$body = wordwrap($body, 70);
 
-			// Print a message:
-			echo '<p><em>Thank you for contacting me. I will reply some day.</em></p>';
+				// Send the email:
+				//the email address is the one you want to send the email to
+				//so bellKevin@pm.me can be changed to whoever you want to send the email to like kevinbellr@gmail.com or george.ray@davistech.edu
+				//the subject is the subject line of the email, so Contact Form Submission can be changed to whatever you want
+				$to = 'bellKevin@pm.me';
+				mail($to, 'Contact Form Submission', $body, "From: {$_POST['email']}");
 
-			// Clear $_POST (so that the form's not sticky):
-			$_POST = [];
+				// Print a message:
+				echo '<p><em>Thank you for contacting me. I will reply some day.</em></p>';
+
+				// Clear $_POST (so that the form's not sticky):
+				$_POST = [];
+			} else {
+				echo '<p style="font-weight: bold; color: #C00">Please fill out the form completely.</p>';
+			}
 		} else {
-			echo '<p style="font-weight: bold; color: #C00">Please fill out the form completely.</p>';
+			echo '<p style="font-weight: bold; color: #C00">Please enter the correct text from the captcha image.</p>';
 		}
 	} // End of main isset() IF.
 
@@ -43,10 +49,17 @@
 	?>
 	<p>Please fill out this form to contact me.</p>
 	<form action="email.php" method="post">
-		<p>Name: <input type="text" name="name" size="30" maxlength="60" value="<?php if (isset($_POST['name'])) echo $_POST['name']; ?>"></p>
-		<p>Email Address: <input type="email" name="email" size="30" maxlength="80" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>"></p>
-		<p>Comments: <textarea name="comments" rows="5" cols="30"><?php if (isset($_POST['comments'])) echo $_POST['comments']; ?></textarea></p>
-		<p><input type="submit" name="submit" value="Send!"></p>
+		<label for="name">Name:</label><br>
+		<input type="text" id="name" name="name"><br>
+		<label for="email">Email:</label><br>
+		<input type="email" id="email" name="email"><br>
+		<label for="comments">Comments:</label><br>
+		<textarea id="comments" name="comments"></textarea><br>
+		<img src="/captcha-image/captcha.PNG" alt="Captcha">
+		<br>
+		<label for="captcha">Enter the text from the image:</label><br>
+		<input type="text" id="captcha" name="captcha"><br><br>
+		<input type="submit" value="Submit">
 	</form>
 </body>
 
