@@ -7,6 +7,8 @@ Complete the following from the chapter's Pursue section:  Create a more custom 
 
 ![p](https://github.com/bell-kevin/chap11pursue/blob/main/chap11pursue/php/captcha-image/iWillReplySomeDay.PNG)
 
+![p](https://github.com/bell-kevin/chap11pursue/blob/main/chap11pursue/php/elonMusk.PNG)
+
 == We're Using GitHub Under Protest ==
 
 This project is currently hosted on GitHub.  This is not ideal; GitHub is a
