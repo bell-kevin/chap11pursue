@@ -6,7 +6,7 @@ Textbook: PHP and MySQL for Dynamic Web Sites: Visual QuickPro Guide (5th Editio
 
 Complete the following from the chapter's Pursue section:  Create a more custom contact form, where the PHP script sends a custom email that includes a static message and other data requested by the form.  
 
-Submission: Submit a .zip file which contains screenshots of your code working and your sourcecode.
+Submission: Submit a .zip file which contains screenshots of your code working and your source-code.
 
 ![p](https://github.com/bell-kevin/chap11pursue/blob/main/chap11pursue/php/captcha-image/beforeForm.PNG)
 
@@ -19,7 +19,7 @@ Submission: Submit a .zip file which contains screenshots of your code working a
 == We're Using GitHub Under Protest ==
 
 This project is currently hosted on GitHub.  This is not ideal; GitHub is a
-proprietary, trade-secret system that is not Free and Open Souce Software
+proprietary, trade-secret system that is not Free and Open Source Software
 (FOSS).  We are deeply concerned about using a proprietary system like GitHub
 to develop our FOSS project. I have a [website](https://bellKevin.me) where the
 project contributors are actively discussing how we can move away from GitHub
